@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "927016594487",
+    "firebase_url": "https://monitoringasset-b0d7a.firebaseio.com",
+    "project_id": "monitoringasset-b0d7a",
+    "storage_bucket": "monitoringasset-b0d7a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927016594487:android:d4db0700987aa376",
+        "android_client_info": {
+          "package_name": "com.example.ryanr.monitoringassetfb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "927016594487-j9cv3mj0c6952aph6vv8625qpsid3efh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ryanr.monitoringassetfb",
+            "certificate_hash": "b99fb49f89fd5d4fba4da7ac47bea3e1b15453f6"
+          }
+        },
+        {
+          "client_id": "927016594487-1igspu5rk7p34rp0q85ct7n077k2q6fl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbbsk6iknuXf6yKBqVbfjYGSN1gG9fbHc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "927016594487-1igspu5rk7p34rp0q85ct7n077k2q6fl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
