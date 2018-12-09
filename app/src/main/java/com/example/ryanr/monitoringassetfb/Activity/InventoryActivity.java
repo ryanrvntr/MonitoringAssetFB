@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.ryanr.monitoringassetfb.Model.InventoryModel;
@@ -66,8 +67,23 @@ public class InventoryActivity extends AppCompatActivity {
                 new FirebaseRecyclerAdapter<InventoryModel, ViewHolderInventory>(InventoryModel.class,R.layout.row_inventory,ViewHolderInventory.class,mReference.orderByChild("rayonId").equalTo(id_rayon))
                 {
                     @Override
-                    protected void populateViewHolder(ViewHolderInventory viewHolder, InventoryModel model, int position) {
+                    protected void populateViewHolder(ViewHolderInventory viewHolder, final InventoryModel model, final int position) {
                         viewHolder.setDetail(getApplicationContext(),model.getNama(),model.getMerk(),model.getGambar());
+                        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(getApplication(),DetailInventoryActivity.class);
+                                intent.putExtra("nama",firebaseRecyclerAdapter.getItem(position).getNama());
+                                intent.putExtra("gambar",firebaseRecyclerAdapter.getItem(position).getGambar());
+                                intent.putExtra("jenis",firebaseRecyclerAdapter.getItem(position).getJenis_inventory());
+                                intent.putExtra("jumlah",firebaseRecyclerAdapter.getItem(position).getJumlah());
+                                intent.putExtra("keterangan",firebaseRecyclerAdapter.getItem(position).getKeterangan());
+                                intent.putExtra("merk",firebaseRecyclerAdapter.getItem(position).getMerk());
+                                intent.putExtra("ruang",firebaseRecyclerAdapter.getItem(position).getRuang());
+                                intent.putExtra("satuan",firebaseRecyclerAdapter.getItem(position).getSatuan());
+                                startActivity(intent);
+                            }
+                        });
 
                     }
                 };

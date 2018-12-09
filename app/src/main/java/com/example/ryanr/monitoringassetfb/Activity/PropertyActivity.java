@@ -22,7 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class PropertyActivity extends AppCompatActivity {
-    FirebaseRecyclerAdapter<PropertyModel,ViewHolderInventory> firebaseRecyclerAdapter;
+    FirebaseRecyclerAdapter<PropertyModel,ViewHolderProperty> firebaseRecyclerAdapter;
     FirebaseDatabase mFirebaseDatabase;
     RecyclerView mRecyclerView;
     DatabaseReference mReference;
@@ -67,8 +67,8 @@ public class PropertyActivity extends AppCompatActivity {
                         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
-                                intent.putExtra("nama_property", firebaseRecyclerAdapter.getItem(position).getNama_property());
+                                Intent intent = new Intent(getApplicationContext(),DetailProperty.class);
+                                intent.putExtra("nama", firebaseRecyclerAdapter.getItem(position).getNama_property());
                                 intent.putExtra("alamat", firebaseRecyclerAdapter.getItem(position).getAlamat());
                                 intent.putExtra("kode_pos", firebaseRecyclerAdapter.getItem(position).getKode_pos());
                                 intent.putExtra("keterangan", firebaseRecyclerAdapter.getItem(position).getKeterangan());

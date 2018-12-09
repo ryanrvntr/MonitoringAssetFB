@@ -70,5 +70,14 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        cvProperty = findViewById(R.id.cvProperty);
+        cvProperty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplication(),PropertyActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }

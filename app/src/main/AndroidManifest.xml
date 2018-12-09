@@ -25,7 +25,8 @@
         <activity android:name=".Activity.InventoryActivity" />
         <activity android:name=".Activity.TransportActivity" />
         <activity android:name=".Activity.PropertyActivity" />
-        <activity android:name=".Activity.DetailProperty"></activity>
+        <activity android:name=".Activity.DetailProperty" />
+        <activity android:name=".Activity.DetailInventoryActivity"></activity>
     </application>
 
 </manifest>

@@ -15,11 +15,12 @@ public class ViewHolderProperty extends RecyclerView.ViewHolder {
 
     public ViewHolderProperty(@NonNull View itemView) {
         super(itemView);
+        mView = itemView;
     }
 
     public void setDetail(Context context, String nama_property, String alamat , String gambar){
         TextView mProperty = mView.findViewById(R.id.tvProperty);
-        TextView mAlamat = mView.findViewById(R.id.tvAlamat);
+        TextView mAlamat = mView.findViewById(R.id.tvAlamatP);
         ImageView imgProperti = mView.findViewById(R.id.ivProperty);
 
 
