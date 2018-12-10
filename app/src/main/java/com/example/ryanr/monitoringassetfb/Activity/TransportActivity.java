@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.ryanr.monitoringassetfb.Model.InventoryModel;
 import com.example.ryanr.monitoringassetfb.Model.TransportModel;
@@ -58,8 +59,25 @@ public class TransportActivity extends AppCompatActivity {
     private void LoadListTransport(String id_rayon){
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<TransportModel, ViewHolderTransport>(TransportModel.class,R.layout.row_transport,ViewHolderTransport.class,mReference.orderByChild("rayonId").equalTo(id_rayon)) {
             @Override
-            protected void populateViewHolder(ViewHolderTransport viewHolder, TransportModel model, int position) {
+            protected void populateViewHolder(ViewHolderTransport viewHolder, TransportModel model, final int position) {
                 viewHolder.setDetails(getApplicationContext(),model.getNama_kendaraan(),model.getNomor_polisi());
+                viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplication(), DetailTransportActivity.class);
+                        intent.putExtra("nama",firebaseRecyclerAdapter.getItem(position).getNama_kendaraan());
+                        intent.putExtra("gambar",firebaseRecyclerAdapter.getItem(position).getGambar());
+                        intent.putExtra("jenis",firebaseRecyclerAdapter.getItem(position).getJenis());
+                        intent.putExtra("no_polisi",firebaseRecyclerAdapter.getItem(position).getNomor_polisi());
+                        intent.putExtra("pemilik",firebaseRecyclerAdapter.getItem(position).getPemilik());
+                        intent.putExtra("pengguna",firebaseRecyclerAdapter.getItem(position).getPengguna());
+                        intent.putExtra("stan_akhir",firebaseRecyclerAdapter.getItem(position).getStand_akhir());
+                        intent.putExtra("stan_awal",firebaseRecyclerAdapter.getItem(position).getStand_awal());
+                        intent.putExtra("keterangan",firebaseRecyclerAdapter.getItem(position).getKeterangan());
+                        intent.putExtra("rayon",firebaseRecyclerAdapter.getItem(position).getRayonId());
+                        startActivity(intent);
+                    }
+                });
             }
         };
         mRecyclerView.setAdapter(firebaseRecyclerAdapter);

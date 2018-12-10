@@ -33,6 +33,8 @@ public class DetailProperty extends AppCompatActivity {
         mAlamat.setText(alamat);
         mKeterangan.setText(keterangan);
         mKodePos.setText(kode_pos);
+//        mLongitude.setText(String.valueOf(longitude));
+//        mLatitude.setText(String.valueOf(latitude));
         Picasso.get().load(gambar).into(mGambar);
     }
 }

@@ -42,15 +42,15 @@
                         android:id="@+id/tvNama"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nama Inventaris"
+                        android:text="Nama Kendaraan"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tvMerk"
+                        android:id="@+id/tvNoPolisi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Merk"
+                        android:text="N 4456 VS"
                         android:textAlignment="textEnd" />
                 </LinearLayout>
 
@@ -70,25 +70,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingRight="5dp"
-                        android:text="Jumlah"
+                        android:text="Pengguna"
                         android:textSize="15sp" />
 
-                        <TextView
-                            android:id="@+id/tv_jumlah"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="82pt"
-                            android:paddingRight="5dp"
-                            android:text="0.0"
-                            android:textSize="15sp" />
-
-                        <TextView
-                            android:id="@+id/tvSatuan"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="satuan"
-                            android:textSize="15sp"
-                            android:textAlignment="textEnd"/>
+                    <TextView
+                        android:id="@+id/tvPengguna"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Direktur"
+                        android:textAlignment="textEnd"
+                        android:textSize="15sp" />
                 </LinearLayout>
 
                 <View
@@ -106,10 +97,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Ruang" />
+                        android:text="Pemilik" />
 
                     <TextView
-                        android:id="@+id/tvRuang"
+                        android:id="@+id/tvPemilik"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Studio"
@@ -131,13 +122,63 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Jenis Inventaris" />
+                        android:text="Jenis Kendaraan" />
 
                     <TextView
                         android:id="@+id/tvJenis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Jenis"
+                        android:text="Roda 4"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5pt"
+                    android:layout_marginBottom="5pt"
+                    android:background="@color/lightgray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Stan Awal" />
+
+                    <TextView
+                        android:id="@+id/tvStanAwal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="789"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5pt"
+                    android:layout_marginBottom="5pt"
+                    android:background="@color/lightgray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Stan Akhir" />
+
+                    <TextView
+                        android:id="@+id/tvStanAkhir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="789"
                         android:textAlignment="textEnd" />
                 </LinearLayout>
 
