@@ -11,11 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.ryanr.monitoringassetfb.Model.PropertyModel;
-import com.example.ryanr.monitoringassetfb.Model.RayonModel;
 import com.example.ryanr.monitoringassetfb.R;
-import com.example.ryanr.monitoringassetfb.ViewHolder.ViewHolderInventory;
 import com.example.ryanr.monitoringassetfb.ViewHolder.ViewHolderProperty;
-import com.example.ryanr.monitoringassetfb.ViewHolder.ViewHolderRayon;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -67,7 +64,7 @@ public class PropertyActivity extends AppCompatActivity {
                         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent intent = new Intent(getApplicationContext(),DetailProperty.class);
+                                Intent intent = new Intent(getApplicationContext(),DetailPropertyActivity.class);
                                 intent.putExtra("nama", firebaseRecyclerAdapter.getItem(position).getNama_property());
                                 intent.putExtra("alamat", firebaseRecyclerAdapter.getItem(position).getAlamat());
                                 intent.putExtra("kode_pos", firebaseRecyclerAdapter.getItem(position).getKode_pos());

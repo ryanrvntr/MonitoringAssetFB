@@ -1,11 +1,14 @@
 package com.example.ryanr.monitoringassetfb.Activity;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ryanr.monitoringassetfb.R;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.squareup.picasso.Picasso;
 
 public class DetailTransportActivity extends AppCompatActivity {
@@ -25,7 +28,6 @@ public class DetailTransportActivity extends AppCompatActivity {
         String rayon = getIntent().getStringExtra("rayon");
         int stanAwal = getIntent().getIntExtra("stan_awal",0);
         int stanAkhir = getIntent().getIntExtra("stan_akhir",0);
-
         mNama = findViewById(R.id.tvNama);
         mJenis = findViewById(R.id.tvJenis);
         mPemilik = findViewById(R.id.tvPemilik);
