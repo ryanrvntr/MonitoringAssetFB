@@ -2,7 +2,7 @@ package com.example.ryanr.monitoringassetfb.Model;
 
 public class PropertyModel {
     private String nama_property,alamat,keterangan,kode_pos, gambar;
-    private long latitude, longitude;
+    private double latitude, longitude;
 
     public PropertyModel() {
     }
@@ -47,19 +47,19 @@ public class PropertyModel {
         this.gambar = gambar;
     }
 
-    public long getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(long latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public long getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(long longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 }

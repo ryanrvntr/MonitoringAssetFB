@@ -1,6 +1,7 @@
 package com.example.ryanr.monitoringassetfb.Activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -41,6 +42,8 @@ public class TambahRayonActivity extends AppCompatActivity {
                     mAlamat.setError("Alamat Masih Kosong");
                 }else {
                     submitRayon(new RayonModel(sNama_Rayon.toLowerCase(),sAlamat.toLowerCase()));
+                    Intent intent = new Intent(getApplicationContext(),RayonActivity.class);
+                    startActivity(intent);
                 }
             }
         });
