@@ -19,22 +19,22 @@ import com.synnapps.carouselview.ImageClickListener;
 import com.synnapps.carouselview.ImageListener;
 
 public class DetailPropertyActivity extends FragmentActivity implements OnMapReadyCallback {
-    TextView mNama,mAlamat,mKodePos,mKeterangan,mLongitude,mLatitude;
+    TextView mNama,mAlamat,mKodePos,mKeterangan;
     ImageView mGambar;
-    long longitude, latitude;
+    double longitude, latitude;
 
     private GoogleMap mMap;
     CarouselView carouselView;
-    int[] mapAndImage = {R.id.map, R.id.ivImage};
+//    int[] mapAndImage = {R.id.map, R.id.ivImage};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_property);
 
-        carouselView = findViewById(R.id.carouselView);
-        carouselView.setPageCount(mapAndImage.length);
-        carouselView.setImageClickListener((ImageClickListener) imageListener);
+//        carouselView = findViewById(R.id.carouselView);
+//        carouselView.setPageCount(mapAndImage.length);
+//        carouselView.setImageClickListener((ImageClickListener) imageListener);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -44,8 +44,8 @@ public class DetailPropertyActivity extends FragmentActivity implements OnMapRea
         String kode_pos = getIntent().getStringExtra("kode_pos");
         String keterangan = getIntent().getStringExtra("keterangan");
         String gambar = getIntent().getStringExtra("gambar");
-        longitude = getIntent().getLongExtra("longitude",0);
-        latitude = getIntent().getLongExtra("latitude",0);
+        longitude = getIntent().getDoubleExtra("longitude",0);
+        latitude = getIntent().getDoubleExtra("latitude",0);
 
         mNama = findViewById(R.id.tvNama);
         mAlamat = findViewById(R.id.tvAlamat);
@@ -57,23 +57,24 @@ public class DetailPropertyActivity extends FragmentActivity implements OnMapRea
         mAlamat.setText(alamat);
         mKeterangan.setText(keterangan);
         mKodePos.setText(kode_pos);
-        Picasso.get().load(gambar).into(mGambar);
+        //Picasso.get().load(gambar).into(mGambar);
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
+        float zommLevel = 16.0f;
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(longitude, latitude);
+        LatLng sydney = new LatLng(latitude,longitude);
         mMap.addMarker(new MarkerOptions().position(sydney).title("This is position"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,zommLevel));
+
     }
 
-    ImageListener imageListener = new ImageListener() {
-        @Override
-        public void setImageForPosition(int position, ImageView imageView) {
-            imageView.setImageResource(mapAndImage[position]);
-        }
-    };
+//    ImageListener imageListener = new ImageListener() {
+//        @Override
+//        public void setImageForPosition(int position, ImageView imageView) {
+//            imageView.setImageResource(mapAndImage[position]);
+//        }
+//    };
 }
