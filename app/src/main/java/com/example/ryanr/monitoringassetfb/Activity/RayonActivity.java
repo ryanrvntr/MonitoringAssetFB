@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import com.example.ryanr.monitoringassetfb.ClickListener;
 import com.example.ryanr.monitoringassetfb.Model.RayonModel;
@@ -49,6 +50,14 @@ public class RayonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rayon);
 
+        Button tambah = findViewById(R.id.tambahRayon);
+        tambah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),TambahRayonActivity.class);
+                startActivity(intent);
+            }
+        });
 
         mRecyclerView = findViewById(R.id.rvRayon);
         mRecyclerView.setHasFixedSize(true);

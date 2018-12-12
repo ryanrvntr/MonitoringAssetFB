@@ -1,6 +1,8 @@
 package com.example.ryanr.monitoringassetfb.Model;
 
-public class RayonModel {
+import java.io.Serializable;
+
+public class RayonModel implements Serializable {
     String nama_rayon,alamat;
 
     public RayonModel() {
@@ -25,5 +27,11 @@ public class RayonModel {
 
     public void setAlamat(String alamat) {
         this.alamat = alamat;
+    }
+
+    @Override
+    public String toString() {
+        return " "+nama_rayon+"\n"+
+                " "+alamat;
     }
 }
