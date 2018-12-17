@@ -71,8 +71,8 @@ public class TransportActivity extends AppCompatActivity {
                         intent.putExtra("no_polisi",firebaseRecyclerAdapter.getItem(position).getNomor_polisi());
                         intent.putExtra("pemilik",firebaseRecyclerAdapter.getItem(position).getPemilik());
                         intent.putExtra("pengguna",firebaseRecyclerAdapter.getItem(position).getPengguna());
-                        intent.putExtra("stan_akhir",firebaseRecyclerAdapter.getItem(position).getStand_akhir());
-                        intent.putExtra("stan_awal",firebaseRecyclerAdapter.getItem(position).getStand_awal());
+                        intent.putExtra("stan_akhir",firebaseRecyclerAdapter.getItem(position).getStan_akhir());
+                        intent.putExtra("stan_awal",firebaseRecyclerAdapter.getItem(position).getStan_awal());
                         intent.putExtra("keterangan",firebaseRecyclerAdapter.getItem(position).getKeterangan());
                         intent.putExtra("rayon",firebaseRecyclerAdapter.getItem(position).getRayonId());
                         startActivity(intent);

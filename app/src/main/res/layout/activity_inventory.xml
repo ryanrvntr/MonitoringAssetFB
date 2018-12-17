@@ -34,6 +34,12 @@
                 android:text="daftar inventaris"
                 android:textColor="@color/white"
                 android:textSize="11dp" />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:text="Tambah"
+                android:id="@+id/tambahInventory"/>
         </LinearLayout>
 
     </FrameLayout>

@@ -1,21 +1,21 @@
 package com.example.ryanr.monitoringassetfb.Model;
 
 public class InventoryModel {
-    private String nama,jenis_inventory,keterangan,merk,ruang,satuan,gambar;
-    private int id_rayon,jumlah;
+    private String nama,jenis_inventory,keterangan,merk,ruang,satuan,gambar,rayonId;
+    private int jumlah;
     public InventoryModel() {
     }
 
-    public InventoryModel(String nama, int id_rayon, String jenis_inventory, int jumlah, String keterangan, String merk, String ruang, String satuan, String gambar) {
+    public InventoryModel(String nama, String jenis_inventory, String keterangan, String merk, String ruang, String satuan, String gambar,String rayonId, int jumlah) {
         this.nama = nama;
-        this.id_rayon = id_rayon;
         this.jenis_inventory = jenis_inventory;
-        this.jumlah = jumlah;
         this.keterangan = keterangan;
         this.merk = merk;
         this.ruang = ruang;
         this.satuan = satuan;
         this.gambar = gambar;
+        this.rayonId = rayonId;
+        this.jumlah = jumlah;
     }
 
     public String getNama() {
@@ -26,12 +26,12 @@ public class InventoryModel {
         this.nama = nama;
     }
 
-    public int getId_rayon() {
-        return id_rayon;
+    public String getrayonId() {
+        return rayonId;
     }
 
-    public void setId_rayon(int id_rayon) {
-        this.id_rayon = id_rayon;
+    public void setrayonId(String rayonId) {
+        this.rayonId = rayonId;
     }
 
     public String getJenis_inventory() {
@@ -88,5 +88,20 @@ public class InventoryModel {
 
     public void setGambar(String gambar) {
         this.gambar = gambar;
+    }
+
+    @Override
+    public String toString() {
+        return "InventoryModel{" +
+                "nama='" + nama + '\'' +
+                ", jenis_inventory='" + jenis_inventory + '\'' +
+                ", keterangan='" + keterangan + '\'' +
+                ", merk='" + merk + '\'' +
+                ", ruang='" + ruang + '\'' +
+                ", satuan='" + satuan + '\'' +
+                ", gambar='" + gambar + '\'' +
+                ", rayonId=" + rayonId +
+                ", jumlah=" + jumlah +
+                '}';
     }
 }

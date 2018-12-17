@@ -17,7 +17,7 @@ public class DetailTransportActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_inventory);
+        setContentView(R.layout.activity_detail_transport);
         String name = getIntent().getStringExtra("nama");
         String gambar = getIntent().getStringExtra("gambar");
         String jenis = getIntent().getStringExtra("jenis");
@@ -36,17 +36,17 @@ public class DetailTransportActivity extends AppCompatActivity {
         mNoPolisi = findViewById(R.id.tvNoPolisi);
         mStanAwal = findViewById(R.id.tvStanAwal);
         mStanAkhir = findViewById(R.id.tvStanAkhir);
-        mRayon = findViewById(R.id.tvRayon);
+       // mRayon = findViewById(R.id.tvRayon);
         mGambar = findViewById(R.id.ivImage);
 
         mNama.setText(name);
-        Picasso.get().load(gambar).into(mGambar);
+//        Picasso.get().load(gambar).into(mGambar);
         mPemilik.setText(pemilik);
         mPengguna.setText(pengguna);
         mJenis.setText(jenis);
         mStanAwal.setText(String.valueOf(stanAwal));
         mStanAkhir.setText(String.valueOf(stanAkhir));
-        mRayon.setText(rayon);
+   //     mRayon.setText(rayon);
         mNoPolisi.setText(no_polisi);
         mKeterangan.setText(keterangan);
     }
