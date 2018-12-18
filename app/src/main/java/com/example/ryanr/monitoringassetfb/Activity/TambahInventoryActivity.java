@@ -4,34 +4,35 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ryanr.monitoringassetfb.Model.InventoryModel;
 import com.example.ryanr.monitoringassetfb.R;
-import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+
+import static android.text.TextUtils.isEmpty;
 
 public class TambahInventoryActivity extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
-    EditText mNama,mRuang,mSatuan,mJumlah,mJenis,mMerk,mKeterangan;
-    Button mChoose,mSubmit,mBack;
+    EditText mNama, mRuang, mSatuan, mJumlah, mJenis, mMerk, mKeterangan;
+    Button mChoose, mSubmit, mBack;
 
     private Uri mImageUri;
-
-    private StorageTask mUploadTask;
 
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
@@ -42,7 +43,7 @@ public class TambahInventoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tambah_inventory);
 
         Intent intent = getIntent();
-        final String id_rayon= intent.getStringExtra("id_rayon");
+        final String id_rayon = intent.getStringExtra("id_rayon");
 
         mNama = findViewById(R.id.etNamaInventory);
         mJenis = findViewById(R.id.etJenis);
@@ -67,10 +68,38 @@ public class TambahInventoryActivity extends AppCompatActivity {
         mSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mUploadTask != null && mUploadTask.isInProgress()) {
-                    Toast.makeText(TambahInventoryActivity.this, "Upload in progress", Toast.LENGTH_SHORT).show();
-                } else {
-                    uploadFile(id_rayon);
+                if (!isEmpty(mNama.getText().toString()) && !isEmpty(mJenis.getText().toString()) && !isEmpty(mJumlah.getText().toString()) && !isEmpty(mKeterangan.getText().toString()) && !isEmpty(mMerk.getText().toString()) && !isEmpty(mRuang.getText().toString()) && !isEmpty(mSatuan.getText().toString())) {
+                    if (mImageUri != null) {
+                        final StorageReference reference = mStorageRef.child(System.currentTimeMillis() + "." + getFileExtension(mImageUri));
+                        reference.putFile(mImageUri).continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                            @Override
+                            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                                if (!task.isSuccessful()) {
+                                    throw task.getException();
+                                }
+                                return reference.getDownloadUrl();
+                            }
+                        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Uri> task) {
+                                if (task.isSuccessful()) {
+                                    Uri downloadUri = task.getResult();
+                                    Toast.makeText(TambahInventoryActivity.this, "Upload succes", Toast.LENGTH_LONG).show();
+                                    String value = mJumlah.getText().toString();
+                                    int finalvalue = Integer.parseInt(value);
+                                    submitInventory(new InventoryModel(mNama.getText().toString(),
+                                            mJenis.getText().toString(),
+                                            mKeterangan.getText().toString(),
+                                            mMerk.getText().toString(),
+                                            mRuang.getText().toString(),
+                                            mSatuan.getText().toString(),
+                                            downloadUri.toString(),
+                                            id_rayon,
+                                            finalvalue));
+                                }
+                            }
+                        });
+                    }
                 }
             }
         });
@@ -99,45 +128,19 @@ public class TambahInventoryActivity extends AppCompatActivity {
         return mime.getExtensionFromMimeType(cR.getType(uri));
     }
 
-    private void uploadFile(final String id_rayon){
-        if (mImageUri != null){
-            StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()+"."+getFileExtension(mImageUri)).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                @Override
-                public void onSuccess(Uri uri) {
-                Uri downloadUri =
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-
-                }
-            });
-//            mUploadTask = fileReference.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                @Override
-//                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                    Toast.makeText(TambahInventoryActivity.this,"Upload Succes ....",Toast.LENGTH_LONG).show();
-//                    String value = mJumlah.getText().toString();
-//                    int finalvalue = Integer.parseInt(value);
-//
-//                    InventoryModel inventoryModel = new InventoryModel(
-//                            mNama.getText().toString(),
-//                            mJenis.getText().toString(),
-//                            mKeterangan.getText().toString(),
-//                            mMerk.getText().toString(),
-//                            mRuang.getText().toString(),
-//                            mSatuan.getText().toString(),
-//                            taskSnapshot.getMetadata().getReference().getDownloadUrl().toString(),
-//                            id_rayon,
-//                            finalvalue);
-//                    mDatabaseRef.push().setValue(inventoryModel);
-//                }
-//            }).addOnFailureListener(new OnFailureListener() {
-//                @Override
-//                public void onFailure(@NonNull Exception e) {
-//
-//                }
-//            });
-//
-//        }
+    private void submitInventory(InventoryModel inventoryModel) {
+        mDatabaseRef.push().setValue(inventoryModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                mNama.setText("");
+                mJenis.setText("");
+                mJumlah.setText("");
+                mKeterangan.setText("");
+                mMerk.setText("");
+                mRuang.setText("");
+                mSatuan.setText("");
+                Snackbar.make(findViewById(R.id.submit), "Inventory berhasil ditambahh ...", Snackbar.LENGTH_LONG).show();
+            }
+        });
     }
 }

@@ -52,7 +52,8 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
 
-        <activity android:name=".Activity.TambahInventoryActivity"></activity>
+        <activity android:name=".Activity.TambahInventoryActivity" />
+        <activity android:name=".Activity.TambahPropertyActivity"></activity>
     </application>
 
 </manifest>
