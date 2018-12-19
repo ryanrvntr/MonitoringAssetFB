@@ -7,6 +7,16 @@ public class PropertyModel {
     public PropertyModel() {
     }
 
+    public PropertyModel(String nama_property, String alamat, String keterangan, String kode_pos, String gambar, double latitude, double longitude) {
+        this.nama_property = nama_property;
+        this.alamat = alamat;
+        this.keterangan = keterangan;
+        this.kode_pos = kode_pos;
+        this.gambar = gambar;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
     public String getNama_property() {
         return nama_property;
     }

@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import com.example.ryanr.monitoringassetfb.Model.PropertyModel;
 import com.example.ryanr.monitoringassetfb.R;
@@ -23,6 +24,7 @@ public class PropertyActivity extends AppCompatActivity {
     FirebaseDatabase mFirebaseDatabase;
     RecyclerView mRecyclerView;
     DatabaseReference mReference;
+    Button btn;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -35,6 +37,7 @@ public class PropertyActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId()==R.id.logout){
             FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
         }
         return true;
     }
@@ -51,6 +54,14 @@ public class PropertyActivity extends AppCompatActivity {
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mReference = mFirebaseDatabase.getReference("Property");
+        btn = findViewById(R.id.button);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(PropertyActivity.this,TambahPropertyActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override

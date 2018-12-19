@@ -34,13 +34,13 @@ public class DetailInventoryActivity extends AppCompatActivity {
         mSatuan = findViewById(R.id.tvSatuan);
         mGambar = findViewById(R.id.ivImage);
 
-        mNama.setText("Nama : "+name);
+        mNama.setText(name);
         Picasso.get().load(gambar).into(mGambar);
-        mRuang.setText("Ruang : "+ruang);
-        mJenis.setText("Jenis : "+jenis);
-        mJumlah.setText(String.valueOf("Jumlah : " + jumlah));
+        mRuang.setText(ruang);
+        mJenis.setText(jenis);
+        mJumlah.setText(String.valueOf(jumlah));
         mSatuan.setText(satuan);
-        mMerk.setText("Merk : "+merk);
-        mKeterangan.setText("Keterangan : " + keterangan);
+        mMerk.setText(merk);
+        mKeterangan.setText(keterangan);
     }
 }

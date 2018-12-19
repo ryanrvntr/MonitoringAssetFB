@@ -10,6 +10,7 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -53,7 +54,8 @@
             android:required="false" />
 
         <activity android:name=".Activity.TambahInventoryActivity" />
-        <activity android:name=".Activity.TambahPropertyActivity"></activity>
+        <activity android:name=".Activity.TambahPropertyActivity" />
+        <activity android:name=".Activity.TambahTransportActivity"></activity>
     </application>
 
 </manifest>

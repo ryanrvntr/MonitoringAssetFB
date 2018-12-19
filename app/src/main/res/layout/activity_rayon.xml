@@ -10,13 +10,13 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="90pt"
-        android:background="@mipmap/ic_launcher">
+        android:background="@drawable/rayon">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="90pt"
             android:layout_gravity="center"
-            android:background="#ca000000"
+            android:background="#92000000"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -48,8 +48,7 @@
         android:id="@+id/rvRayon"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:padding="15dp">
+        android:layout_weight="1">
 
     </android.support.v7.widget.RecyclerView>
 

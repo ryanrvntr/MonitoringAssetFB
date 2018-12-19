@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import com.example.ryanr.monitoringassetfb.Model.InventoryModel;
 import com.example.ryanr.monitoringassetfb.Model.TransportModel;
@@ -25,6 +26,7 @@ public class TransportActivity extends AppCompatActivity {
     FirebaseDatabase mFirebaseDatabase;
     RecyclerView mRecyclerView;
     DatabaseReference mReference;
+    Button mButton;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -46,9 +48,19 @@ public class TransportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transport);
         Intent intent = getIntent();
-        String id_rayon = intent.getStringExtra("id_rayon");
+        final String id_rayon = intent.getStringExtra("id_rayon");
         mRecyclerView = findViewById(R.id.rvTransport);
         mRecyclerView.setHasFixedSize(true);
+
+        mButton = findViewById(R.id.btnTambah);
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(),TambahTransportActivity.class);
+                i.putExtra("id_rayon",id_rayon);
+                startActivity(i);
+            }
+        });
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mFirebaseDatabase = FirebaseDatabase.getInstance();

@@ -10,13 +10,13 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="90pt"
-        android:background="@mipmap/ic_launcher">
+        android:background="@drawable/transportation">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="90pt"
             android:layout_gravity="center"
-            android:background="#ca000000"
+            android:background="#8f000000"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -34,6 +34,12 @@
                 android:text="daftar kendaraan"
                 android:textColor="@color/white"
                 android:textSize="11dp" />
+
+            <Button
+                android:id="@+id/btnTambah"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:text="Button" />
         </LinearLayout>
 
     </FrameLayout>
@@ -41,8 +47,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvTransport"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="15dp">
+        android:layout_height="match_parent">
 
     </android.support.v7.widget.RecyclerView>
 </LinearLayout>

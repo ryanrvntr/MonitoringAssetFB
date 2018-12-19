@@ -23,28 +23,36 @@
             android:padding="20dp">
 
             <TextView
-                android:textSize="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:singleLine="true"
                 android:text="Menambahkan Rayon"
-                android:textStyle="bold"/>
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
             <EditText
-                android:paddingTop="20dp"
+                android:id="@+id/etNamaRayon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nama Rayon"
-                android:id="@+id/etNamaRayon"/>
+                android:maxLines="1"
+                android:paddingTop="20dp"
+                android:singleLine="true" />
+
             <EditText
+                android:id="@+id/etAlamat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Alamat"
-                android:id="@+id/etAlamat"/>
+                android:maxLines="1"
+                android:singleLine="true" />
 
             <LinearLayout
-                android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="10dp">
 
                 <Button
                     android:id="@+id/submit"

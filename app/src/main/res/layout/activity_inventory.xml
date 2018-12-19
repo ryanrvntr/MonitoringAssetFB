@@ -10,13 +10,13 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="90pt"
-        android:background="@mipmap/ic_launcher">
+        android:background="@drawable/inventory">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="90pt"
             android:layout_gravity="center"
-            android:background="#ca000000"
+            android:background="#8c000000"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -47,8 +47,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvInventory"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="15dp">
+        android:layout_height="match_parent">
 
     </android.support.v7.widget.RecyclerView>
 </LinearLayout>

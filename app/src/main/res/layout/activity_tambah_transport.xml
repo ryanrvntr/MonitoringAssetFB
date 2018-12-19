@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.TambahPropertyActivity">
+    tools:context=".Activity.TambahInventoryActivity">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -39,35 +39,41 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/etNamaProperty"
+                        android:id="@+id/etNamaKendaraan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Nama Property"
+                        android:hint="Nama Kendaraan"
                         android:maxLines="1"
                         android:paddingTop="20dp"
                         android:singleLine="true" />
 
                     <EditText
-                        android:id="@+id/etAlamat"
+                        android:id="@+id/etNo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Alamat"
+                        android:hint="No Polisi"
                         android:maxLines="1"
                         android:singleLine="true" />
 
                     <EditText
-                        android:id="@+id/etKodePos"
+                        android:id="@+id/etJenis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Jumlah"
-                        android:maxLines="1"
-                        android:singleLine="true"/>
+                        android:hint="Jenis" />
 
                     <EditText
-                        android:id="@+id/etKeterangan"
+                        android:id="@+id/etPengguna"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Keterangan"
+                        android:hint="Pengguna"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:id="@+id/etPemilik"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Pemilik"
                         android:maxLines="1"
                         android:singleLine="true" />
 
@@ -77,36 +83,31 @@
                         android:orientation="horizontal">
 
                         <EditText
-                            android:id="@+id/etLat"
-                            android:layout_width="100dp"
+                            android:id="@+id/etSawal"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:ems="10"
-                            android:inputType="textPersonName"
-                            android:hint="Latitude" />
+                            android:hint="Jenis"
+                            android:maxLines="1"
+                            android:singleLine="true" />
 
                         <EditText
-                            android:id="@+id/etLong"
-                            android:layout_width="100dp"
+                            android:id="@+id/etSakhir"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:ems="10"
-                            android:inputType="textPersonName"
-                            android:hint="Longitude" />
-
-                        <Button
-                            android:id="@+id/check"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Check" />
+                            android:hint="stan akhir"
+                            android:maxLines="1"
+                            android:singleLine="true" />
                     </LinearLayout>
 
-                    <fragment
-                        android:id="@+id/map"
-                        android:name="com.google.android.gms.maps.SupportMapFragment"
+                    <EditText
+                        android:id="@+id/etKeterangan"
                         android:layout_width="match_parent"
-                        android:layout_height="80pt" />
+                        android:layout_height="wrap_content"
+                        android:hint="Keterangan"
+                        android:maxLines="1"
+                        android:singleLine="true" />
 
                     <Button
                         android:id="@+id/choosefile"
